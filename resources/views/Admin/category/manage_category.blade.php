@@ -30,8 +30,9 @@
 </a>
   </div>
   <div class="col">
-        
-<h3 class="">Category :</h3>
+  
+    
+<h3 class="">Category : root</h3>
   </div>
   <div class="col"></div>
   </div>
@@ -51,17 +52,19 @@
       </tr>
     </thead>
     <tbody>
-    @php($i=1)
-      @foreach($categories as $v_category)
+   
+     @foreach ($productcategory as $v_category)
+         
+  
       <tr>
-        <td>{{$i++}}</td>
+        <td></td>
         
-      <td><a href=""></a>{{$v_category->category_name}}</td>
+      <td><a href="{{route('manage-categorywise-category',['id' => $v_category->id ])}}">{{$v_category->category_name}}</a></td>
         
-        <td><img src="{{asset($v_category->category_image)}}" width='30%' /></td>
+      <td><img src="{{asset($v_category->category_image)}}" width='30%' /></td>
         <td>
             <a 
-                href="{{route('details-category',['id' => $v_category->id])}}" 
+                href="" 
                 class="btn btn-sm btn-info border-0" style="border-radius: 12px;">
                 Details
             </a>

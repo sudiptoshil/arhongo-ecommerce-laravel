@@ -16,7 +16,7 @@ class CreateVendorTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->string('username', 11);
-			$table->text('password', 65535);
+			$table->string('password', 65535);
 			$table->string('email', 30);
 			$table->string('phone', 11);
 			$table->text('location', 65535);

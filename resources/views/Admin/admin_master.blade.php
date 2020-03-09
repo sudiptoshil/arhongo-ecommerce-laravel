@@ -11,23 +11,11 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    @include('Admin.sidebar.sidebar')
+      @include('Admin.sidebar.sidebar')
     <!--/Sidebar-->
     <!-- admin home content -->
       @yield('admin-home')
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-     
-      <!-- Sticky Footer -->
-
     </div>
-   
-    <!-- /.content-wrapper -->
-
-  {{-- </div> --}}
-  <!-- /#wrapper -->
-
   <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
@@ -41,4 +29,4 @@
   
 @include('Admin.endgame.endgame')
 
-{{-- @include('Admin.footer.footer') --}}
+<!-- @include('Admin.footer.footer')  -->

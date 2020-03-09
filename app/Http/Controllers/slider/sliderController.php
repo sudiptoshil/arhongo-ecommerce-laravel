@@ -18,22 +18,10 @@ class sliderController extends Controller
     public function save_slider(Request $request)
     {
         // return $request->all();
-
-         $image =$request->file('slider_image');
-         $imageName =$image->getClientOriginalName();
-         $directory ='slider_image/';
-         $image->move($directory,$imageName);
-         $slider = new slider();
-         $slider->slider_title    = $request->slider_title;
-         $slider->content         =$request->content;
-         $slider->slider_image    = $directory.$imageName;
-         $slider->status          =$request->status;
-         $slider->save();
-
+         slider::savesliderinfo($request);
          return redirect('add-slider')->with('message','slider saved successfully!!');
-
-
     }
+
     public function manage_slider()
     {
         return view('Admin.slider.manage_slider',[
@@ -51,11 +39,7 @@ class sliderController extends Controller
 
     public function delete_slider($id)
     {
-        $slider = slider::find($id);
-        if (file_exists($slider->slider_image)) {
-            unlink($slider->slider_image);
-        }
-        $slider->delete();
+        slider::deletesliderinfo($id);
         return redirect('manage-slider')->with('message','slider deleted sucessfully!!');
     }
 

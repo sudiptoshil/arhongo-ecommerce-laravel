@@ -3,7 +3,8 @@
     <a class="navbar-brand mr-1" href="index.html"></a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"><h5>{{ Auth::user()->name }}</h5></i>
+
     </button>
 
     <!-- Navbar Search -->
@@ -52,9 +53,10 @@
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">Activity Log</a>
           <div class="dropdown-divider"></div>
-          
-              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-        
+              <form id="logoutform" action="{{route('logout')}}" method="post">
+                @csrf
+              <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logoutform').submit();" data-toggle="modal" data-target="">Logout</a>
+              </form>
           <a class="dropdown-item" href="" >Admin Login</a>
           <a class="dropdown-item" href="" >Vendor Login</a>
        

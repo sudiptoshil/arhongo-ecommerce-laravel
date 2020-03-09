@@ -6,17 +6,8 @@
 
 <body id="page-top">
 
-<!--TopNav-->
 
-<!--TopNav-->  
-
-  {{-- <div id="wrapper"> --}}
-
-    <!-- Sidebar -->
-   
-    <!--/Sidebar-->
-
-    {{-- {{-- <div id="content-wrapper"> --}}
+     <!-- <div id="content-wrapper">  -->
 
       <div class="container-fluid"> 
 
@@ -51,16 +42,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @php($i=1)
                @foreach($subcategory as $v_subcategory)
                   <tr>
-                    <td></td>
-                  <td>{{$v_subcategory->sub_category_name}}</td>
+                    <td>{{$i++}}</td>
+                  <td>{{$v_subcategory->subcategory_name}}</td>
                   <td>{{$v_subcategory->category->category_name}}</td>
-
-                  <td> <img src ="{{asset($v_subcategory->sub_category_image)}}" width="30%" /></td>
+                        <td> <img src ="{{asset($v_subcategory->sub_cat_image)}}" width="30%" /></td>
                     <td>
                         <a 
-                            href="" 
+                    href="{{route('details-sub-category',['id'=>$v_subcategory->id])}}" 
                             class="btn btn-sm btn-info border-0" style="border-radius: 12px;">
                             Details
                         </a>

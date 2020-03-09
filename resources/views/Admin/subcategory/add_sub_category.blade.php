@@ -5,14 +5,7 @@
 <!--/header-->
 
 <body id="page-top">
-  <div id="wrapper">
-
-    <!-- Sidebar -->
-   
-    <!--/Sidebar-->
-
     <div id="content-wrapper">
-        
       <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -20,7 +13,7 @@
           <li class="breadcrumb-item active">Add New</li>
         </ol>
         <!-- /Breadcrumbs-->
-        <h3 style="color:red" align='center'>{{Session::get('message')}}</h3>
+        <h3 style="color:red" align='center'>{{Session::get('messsage')}}</h3>
         <!-- Add Form -->
 
         <div class="col-md-6 offset-md-3">
@@ -42,7 +35,7 @@
 
             <div class="form-group">
               <!-- <label for="type_name">Type Name</label> -->
-              <input id="type_name" name="sub_category_name" class="form-control form-control-lg" type="text" placeholder="Enter Subcategory Name" required
+              <input id="type_name" name="subcategory_name" class="form-control form-control-lg" type="text" placeholder="Enter Subcategory Name" required
               style="border-radius: 20px;">
             </div>
             
@@ -57,7 +50,7 @@
                             </span>
                             <span class="text text-white-50">Upload Image</span>
                         </label>
-                        <input required id="file-upload" style="display: none" type="file" name="sub_category_image"/>
+                        <input required id="file-upload" style="display: none" type="file" name="sub_cat_image"/>
                         
                     </div> 
 
@@ -70,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="form-check">
+                    {{-- <div class="form-check">
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" value='1' name="publication_status">published
                         </label>
@@ -79,7 +72,7 @@
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" value='0' name="publication_status">unpublished
                         </label>
-                      </div>
+                      </div> --}}
                 </div>
             </small>
 

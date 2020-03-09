@@ -1,37 +1,17 @@
 
 @extends('Admin.admin_master')
 @section('admin-home')
-
-<!--header-->
-
-<!--/header-->
-
 <body id="page-top">
-
-<!--TopNav-->
-
-<!--TopNav-->  
-
-    <!-- Sidebar -->
-   
-    <!--/Sidebar-->
 
     <div id="content-wrapper">
 
       <div class="container-fluid">
-
-
-      
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Categories</li>
           <li class="breadcrumb-item active">Add New</li>
         </ol>
         <!-- /Breadcrumbs-->
-     
-
-
-
         <!-- Add Form -->
         <h3 style='color:red' align='center'>{{Session::get('message')}}</h3>
 
@@ -39,31 +19,30 @@
 
           <form action="{{route('save-category')}}" method="Post" enctype="multipart/form-data">
           @csrf
-              
-             
-            
-                <!-- <input type="hidden" name="root_id" value="" /> -->
-            <!--<div class="">               -->
-            <!--  <select class="form-control form-control-lg" id="pt" name="root_id"-->
-            <!--  style="border-radius: 20px;" >-->
-            <!--      <option value="">Select Parent Category</option>-->
-            <!--   
-            <!--  </select>-->
-            <!--</div>-->
+          
+
+            {{-- <div class="">
+            <select class="form-control form-control-lg" id="pt" name="root_id"
+            style="border-radius: 20px;">
+                  <option value="">Select Parent Category</option>
+              </select>
+            </div>  --}}
 
             <br>
             
             <div class="form-group">
-              <!-- <label for="type_name">Type Name</label> -->
+              <label for="type_name">Type Name</label>
               <input id="type_name" name="category_name" class="form-control form-control-lg" type="text" placeholder="Enter Category Name" required
               style="border-radius: 20px;">
+              <input type="hidden" name="root_id" value="0"/>
             </div>
 
-            <!-- <div class="form-check">
+             <div class="form-check">
               <input type="checkbox" name="home_page" value="1" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Display On Home Page</label>
-            </div> -->
-            <div class="form-check">
+            </div> 
+
+            {{-- <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" value='1' name="publication_status">published
             </label>
@@ -72,7 +51,8 @@
             <label class="form-check-label">
               <input type="radio" class="form-check-input" value='0' name="publication_status">unpublished
             </label>
-          </div>
+          </div> --}}
+
 
 
             <small class="text-info">**Please set a proper suitable name for the image file before uploading.</small>
