@@ -22,7 +22,7 @@
                         <span>&#2547;{{$v_pro->display_price}}</span><br>
                     </button></span><br>
                         
-                        <button class='btn-cart' data-id='' data-bangla='' data-name='' data-price=''><i class='fas fa-shopping-cart'></i> Add to cart</button>
+                        <button class='btn-cart' data-id='{{$v_pro->id}}' data-bangla='' data-name='{{$v_pro->product_name}}' data-price=''><i class='fas fa-shopping-cart'></i> Add to cart</button>
                     </p>
 				</div>
 			</div>

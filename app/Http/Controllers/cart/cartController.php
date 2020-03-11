@@ -18,4 +18,5 @@ class cartController extends Controller
     	// return $cart;
     // return $request->all();
      }
+
 }

@@ -22,7 +22,7 @@
             
 			var name=$(this).attr("data-name");
 			var price=$(this).attr("data-price");
-			image="assets/"+image+"' width='100%'>";
+			image=""+image+"' width='100%'>";
 			cart_btn="<button class='btn-cart' data-id='"+id+"' data-name='"+name+"' data-price='"+price+"'><i class='fa fa-shopping-cart'></i> Add to cart</button>";
 			$('#product_photo').html(image);
 			$('#product_cart').html(cart_btn);

@@ -31,8 +31,9 @@ Route::post('/client-login','client\checkoutController@client_login')->name('cli
 // for contact---------------------------
 Route::get('/contact-us','client\contactController@contact_us')->name('contact-us');
 // shopping cart--------------------------
-
 Route::post('/add-to-cart','cart\cartController@add_to_cart')->name('add-to-cart');
+// order confirmation---------------------
+Route::get('/place-order','order\orderController@place_order')->name('place-order');
 
 
 

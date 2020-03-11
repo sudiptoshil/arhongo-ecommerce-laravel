@@ -93,15 +93,7 @@
                                         <span>{{$v_product->product_name}}</span><br>
                                         <span>&#2547; {{$v_product->display_price}}</span><br>
                                     </button>
-                                   <!--  <form action="{{route('add-to-cart')}}" method="post">
-                                        @csrf
-                                        
-                                        <td>{{$v_product->product_name}}</td>
-                                        <td>{{$v_product->display_price}}</td>
-                                        <input type="number" name="qty" value="1" min="1">
-                                        <input type="hidden" name="id" value="{{$v_product->id}}">
-                                        <input type="submit" name="btn" value="submit">
-                                    </form> -->
+                                  
                                     <!-- for add to cart button -->
                                     <button class='btn-cart' data-id='{{$v_product->id}}' data-bangla='' data-name='' data-price=''><i class='fa fa-shopping-cart'></i> Add to cart</button>
                                         <!-- for add to cart button -->

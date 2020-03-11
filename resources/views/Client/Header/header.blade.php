@@ -321,7 +321,7 @@
 		<div id="toggle">
 			<h4 class="text-center">Your Cart</h4>
 			<div class="cart-table-content">
-			<a href="client_controllers/cart/placeOrder" class="order-btn"><i class="fa fa-shopping-cart"></i> Place order  &nbsp;&nbsp;&nbsp;<span id="discounted_amount" class="text-danger"></span></a>
+            <a href="{{route('place-order')}}" class="order-btn"><i class="fa fa-shopping-cart"></i> Place order  &nbsp;&nbsp;&nbsp;<span id="discounted_amount" class="text-danger"></span></a>
 				<table class="table cart-table">
 					<tbody class="cart-data">
 					
