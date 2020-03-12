@@ -45,15 +45,19 @@
 								
 							</tbody> 
                             @endforeach
-                            @php($sum = $sum +$total)
+                            @php($sum = $sum + $total) 
                             <tr>
                             <th>Item Total</th>
                             <td>{{$sum}}</td>
                             <th>Vat total</th>
                             <td>{{$vat = 0}}</td>
                             <th>Payable Total</th>
-                            <td>{{$sum + $vat}}</td>
-                            </tr>
+                           <td>{{$orderTotal = $sum + $vat}}</td> 
+							</tr>
+							<?php
+							Session::put('orderTotal',$orderTotal)
+							
+							?>
                         
 						</table>
 
@@ -72,13 +76,15 @@
 					<div class="card">
 						
                         <div class="card-body">
-							<form action="" method="post">
-								<input type="hidden" value="" name="customer_id" id="customer_id">
+						<form action="{{route('confirm-order')}}" method="post">
+							@csrf
+                            {{-- <input type="hidden" value="{{Session::get('client_id')}}" name="customer_id" id="customer_id"> --}}
+                            <input type="hidden" value="1" name="status">
 								<h4 class="header-title"><i class="fas fa-map-marker-alt"></i> Delivery Address</h4>
 								
-								<div class="form-group">
+								{{-- <div class="form-group">
 									<label class="checkbox-inline"><input type="checkbox" value="1" id="same-address" name="same_address">Same as present address</label>
-								</div>
+								</div> --}}
 
                                 <div class="form-group" id="shipping">
                                 <label class="col-form-label">Shipping Address</label>
