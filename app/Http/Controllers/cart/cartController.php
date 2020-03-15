@@ -19,4 +19,18 @@ class cartController extends Controller
     // return $request->all();
      }
 
+     public function delete_cart()
+     {  
+        $id  = $_GET["id"];
+        //$list=Cart::content();
+        //print_r($list);
+        $deleteCart = Cart::remove($id);
+        $list=Cart::content();
+        return $list;
+    }
+
+    public function update_cart(Request $request)
+    {  
+        Cart::update($request->rowId , $request->qty);
+    }
 }

@@ -221,6 +221,30 @@ $(document).ready(function() {
 				}
 			});
 		});
+
+		function showCartData(data){
+			var rows="";var items="";
+			var total=0;
+			$.each(data,function(key,item){
+					
+
+					rows+="<tr><td>"+item.name+"</td><td>"+item.price/item.qty+"</td><td>"+item.qty+"</td><td>"+item.price+"</td><td></td><td></td></tr>";
+					discount = 0;
+					total = total + item.price;
+
+					items+="<tr><td><div class='cart-table-button'><center><button data-rowid='"+item.rowId+"' data-qty='"+item.qty+"' data-price='"+item.price+"' class='add-qty'><i class='fa fa-chevron-up'></i></button><br>"+item.qty+"<br><button data-rowid='"+item.rowId+"' data-qty='"+item.qty+"' data-price='"+item.price+"' class='subtract-qty'><i class='fa fa-chevron-down'></i></button><center></div></td><td> "+item.name+"</td><td> ৳ "+item.price+`<br>`+"</td><td><button data-rowid='"+item.rowId+"' class='delete-single-cart-item delete-single-cart'>x</button></div> </td></tr>";
+					
+					});
+					rows+="<tr><th colspan=3>Total</th><td>"+total+"</td></tr>"
+					rows+="<tr><th colspan=3>Discount</th><td id='total_discount'>"+discount+"</td></tr>"
+					rows+="<tr><th colspan=3>Delivery Charge</th><td>0.00</td></tr>"
+					rows+="<tr><th colspan=3>Net Total</th><td>"+(total-discount)+"</td></tr>"
+					rows+="<tr><th colspan=3>VAT(15%)</th><td>"+Math.ceil((total-discount)*0.15)+"</td></tr>"
+					rows+="<tr><th colspan=3>Total Payable</th><td id='total_cost'>"+(Math.ceil((total-discount)*0.15)+(total-discount))+"</td></tr>"
+					$(".cart-data").html(items);
+					$("#trr").html(rows);
+		}
+
 		$(document).on('click','.btn-cart',function(){
 			if (Modernizr.mq('(min-width: 768px)')) {
 				if($("#toggle").is(":visible")){
@@ -256,29 +280,13 @@ $(document).ready(function() {
 			}
 			ajaxSetup(function(data){
 				$(".btn-cart").removeAttr("disabled");
+				showCartData(data);
 				//getTotalItem();
 				//getCartData();
 				//getTotalAmount();
 				//getCartDataForFreehand();
 				//getDiscountedAmount();
-				$.each(data,function(key,item){
-					
-
-					rows+="<tr><td>"+item.name+"</td><td>"+item.price/item.qty+"</td><td>"+item.qty+"</td><td>"+item.price+"</td><td></td><td></td></tr>";
-					discount = 0;
-					total = total + item.price;
-
-					items+="<tr><td><div class='cart-table-button'><center><button data-rowid='"+item.id+"' data-qty='"+item.qty+"' data-price='"+item.price+"' class='add-qty'><i class='fa fa-chevron-up'></i></button><br>"+item.qty+"<br><button data-rowid='"+item.id+"' data-qty='"+item.qty+"' data-price='"+item.price+"' class='subtract-qty'><i class='fa fa-chevron-down'></i></button><center></div></td><td> "+item.name+"</td><td> ৳ "+item.price+`<br>`+"</td><td><button data-rowid='"+item.id+"' class='delete-single-cart-item delete-single-cart'>x</button></div> </td></tr>";
-					
-					});
-					rows+="<tr><th colspan=3>Total</th><td>"+total+"</td></tr>"
-					rows+="<tr><th colspan=3>Discount</th><td id='total_discount'>"+discount+"</td></tr>"
-					rows+="<tr><th colspan=3>Delivery Charge</th><td>0.00</td></tr>"
-					rows+="<tr><th colspan=3>Net Total</th><td>"+(total-discount)+"</td></tr>"
-					rows+="<tr><th colspan=3>VAT(15%)</th><td>"+Math.ceil((total-discount)*0.15)+"</td></tr>"
-					rows+="<tr><th colspan=3>Total Payable</th><td id='total_cost'>"+(Math.ceil((total-discount)*0.15)+(total-discount))+"</td></tr>"
-					$(".cart-data").html(items);
-					$("#trr").html(rows);
+				
 				//alert(data);
 			},method,url,data);
 
@@ -328,9 +336,9 @@ $(document).ready(function() {
 			$.ajax({
 				type: 'POST',
 				//dataType: 'json',
-				url: "",
-				data: {rowid: rowId, qty: qty,price:price},
-				success: function (data) {
+				url: "./update-cart",
+				data: {id: rowId, qty: qty,price:price},
+				success: function (data){
 					$(".subtract-qty").removeAttr("disabled");
 					getTotalItem();
 					getCartData();
@@ -342,20 +350,22 @@ $(document).ready(function() {
 		});
 		$(document).on('click','.delete-single-cart-item',function(){
 					var rowId = $(this).attr('data-rowid');
-
+                     
 					$(".subtract-qty").attr("disabled", "disabled");
 					$.ajax({
-						type: 'POST',
+					    type: 'GET',
 						//dataType: 'json',
-						url: "",
-						data: {rowid: rowId},
+						url: "./delete-cart",
+						data: {id: rowId},
+						
 						success: function (data) {
-							$(".subtract-qty").removeAttr("disabled");
-							getTotalItem();
-							getCartData();
-							getTotalAmount();
-							getCartDataForFreehand();
-							getDiscountedAmount();
+							showCartData(data);
+							// $(".subtract-qty").removeAttr("disabled");
+							// getTotalItem();
+							// getCartData();
+							// getTotalAmount();
+							// getCartDataForFreehand();
+							// getDiscountedAmount();
 						}
 					});
 				});
@@ -366,6 +376,7 @@ $(document).ready(function() {
 		getTotalAmount();
 		getCartDataForFreehand();
 		getDiscountedAmount();
+		
 
 
         function getTotalItem() {

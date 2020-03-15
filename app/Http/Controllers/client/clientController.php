@@ -14,12 +14,14 @@ class clientController extends Controller
     {   
 
     	$slider          = Slider::where('status',1)->get();
-    	$productcategory = productcategory::all();
-    	$product         = product::all()->take(10);      
+        $productcategory = productcategory::all();
+        $categoryroot    = productcategory::where('home_page',1)->orderBy('id','desc')->take(3)->get();
+    	$product         = product::all()->take(20);      
     	return view('Client.Home.home',[
     		'slider'          => $slider,
     		'productcategory' => $productcategory,
-    		'product'         => $product
+            'product'         => $product,
+            'categoryroot'    => $categoryroot
     		
     	]);
     }
@@ -38,8 +40,16 @@ class clientController extends Controller
     {   
         $products  = product::where('subcategory_id',$id)->get();
         return view('Client.categoryProduct.categoryproduct',[
-            'products'  => $products
+            'products'  => $products,
+            
 
+        ]);
+    }
+
+    public function productdetails($id)
+    {   $product = product::find($id);
+        return view('Client.product_details.product_details',[
+            'product' => $product
         ]);
     }
 

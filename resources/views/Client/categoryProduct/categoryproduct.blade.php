@@ -18,7 +18,7 @@
 					<p class="border border-success p-2 text-center">
                     <span><button class="pro-box-btn" data-toggle="modal" data-target="#myModal" data-image="" data-id="" data-desc="" data-name="" data-price=""><br>
                         <span><img src="{{asset($v_pro->img)}}"></span><br>
-                        <span>{{$v_pro->product_name}}</span><br>
+                        <span><a href="{{route('productdetails',['id' => $v_pro->id])}}">{{$v_pro->product_name}}</a></span><br>
                         <span>&#2547;{{$v_pro->display_price}}</span><br>
                     </button></span><br>
                         
@@ -34,7 +34,7 @@
 
 
 <!-- modal for show product details start here -->
-<div id="myModal" class="modal fade" role="dialog">
+{{-- <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<!-- Modal content-->
 		<div class="modal-content">
@@ -48,7 +48,7 @@
 					</div>
 					<div class="col-md-6 col-12">
 						<div class="pro-details">
-							<h1 id="pro-name"></h1>
+						<h1 id="pro-name"></h1>
 							<h2 id="pro-price"></h2>
 							<div id="product_cart"></div>
 						</div>
@@ -80,10 +80,10 @@
 		</div>
 
 	</div>
-</div>
+</div> --}}
 <!-- modal for show product details end here -->
 
-<script>
+{{-- <script>
 	$(document).ready(function () {
 		$(".pro-box-btn").click(function(){
 			var desc=$(this).attr("data-desc");
@@ -92,14 +92,14 @@
             
 			var name=$(this).attr("data-name");
 			var price=$(this).attr("data-price");
-			image="assets/"+image+"' width='100%'>";
+			image=""+image+"' width='100%'>";
 			cart_btn="<button class='btn-cart' data-id='"+id+"' data-name='"+name+"' data-price='"+price+"'><i class='fas fa-shopping-cart'></i> Add to cart</button>";
 			$('#product_photo').html(image);
 			$('#product_cart').html(cart_btn);
 			$('#desc').text(desc);
 			$('#pro-name').text(name);
-			$('#pro-price').text("৳ "+price);
+			$('#pro-price').text("৳"+price);
 		});
 	});
-</script>
+</script> --}}
 @endsection

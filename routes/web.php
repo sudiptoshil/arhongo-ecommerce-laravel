@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/','client\clientController@index');
 Route::get('/category-product/{id}','client\clientController@category_product')->name('category-product');
 Route::get('/sub-category-product/{id}','client\clientController@sab_category_product')->name('sub-category-product');
+Route::get('/productdetails/{id}','client\clientController@productdetails')->name('productdetails');
 
 Route::post('/client-signup','client\checkoutController@client_signup')->name('client-signup');
 Route::get('/client-logout','client\checkoutController@logout')->name('client-logout');
@@ -32,6 +33,9 @@ Route::post('/client-login','client\checkoutController@client_login')->name('cli
 Route::get('/contact-us','client\contactController@contact_us')->name('contact-us');
 // shopping cart--------------------------
 Route::post('/add-to-cart','cart\cartController@add_to_cart')->name('add-to-cart');
+Route::get('/delete-cart/','cart\cartController@delete_cart')->name('delete-cart');
+Route::post('/update-cart','cart\cartController@update_cart')->name('update-cart');
+
 // order confirmation---------------------
 Route::get('/place-order','order\orderController@place_order')->name('place-order');
 Route::post('/confirm-order','order\orderController@confirm_order')->name('confirm-order');

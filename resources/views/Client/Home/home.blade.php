@@ -55,17 +55,18 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <h3>Discover our <a href="">Fitness Equipment</a> Store!</h3>
+                        <h2><span style="color:red"><i><u>All Category</u></i></span></h2>
+                        <br/>
                         <div class="home_menu">
                         
                             @foreach($productcategory as $v_cat)
                              @if($v_cat->root_id == 0)
-                            <h2><a href="{{route('category-product',['id' =>$v_cat->id])}}">{{$v_cat->category_name}}</a></h2>
+                            <h2><a href="{{route('category-product',['id' =>$v_cat->id])}}"><span style="color:green"><u>{{$v_cat->category_name}}</u></span></a></h2>
                              @endif
                               
                             <ul>
                                 @if($v_cat->root_id > 0)
-                                <li><a href="{{route('sub-category-product',['id' => $v_cat->id])}}">{{$v_cat->category_name}}</a></li>
+                                <li><h5><a href="{{route('sub-category-product',['id' => $v_cat->id])}}"><span style="color:yellowgreen">{{$v_cat->category_name}}</span></a></h5></li>
                                @endif
                             </ul>
                         
@@ -76,7 +77,10 @@
                         <div class="row">
                             <div class="col-md-6 right-home">
                                 
-                                <img src="" width="100%">
+                                @foreach($categoryroot as $v_catroot)
+                             <h2 ><span style="color:red"><u><i>{{$v_catroot->category_name}}</i></u></span></h2>
+                            <img src="{{asset($v_catroot->category_image)}}" width="10%" height="1%">
+                                @endforeach
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
@@ -90,7 +94,7 @@
                                        <span style="color: red"> img not available</span>
                                         @endif
                                         <br>
-                                        <span>{{$v_product->product_name}}</span><br>
+                                    <span><a href="{{route('productdetails',['id' => $v_product->id])}}">{{$v_product->product_name}}</a></span><br>
                                         <span>&#2547; {{$v_product->display_price}}</span><br>
                                     </button>
                                   
@@ -111,7 +115,7 @@
 
         
 
-<!-- modal for show product details start here -->
+{{-- <!-- modal for show product details start here -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <!-- Modal content-->
@@ -160,5 +164,5 @@
     </div>
 </div>
 <script type="text/javascript" src=""></script>
-<!-- modal for show product details end here -->
+<!-- modal for show product details end here --> --}}
 @endsection
