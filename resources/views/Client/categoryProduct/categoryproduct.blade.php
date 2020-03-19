@@ -33,55 +33,7 @@
         </div>
 
 
-<!-- modal for show product details start here -->
-{{-- <div id="myModal" class="modal fade" role="dialog">
-	<div class="modal-dialog modal-lg">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-6 col-7">
-						<div id="product_photo"></div>
-					</div>
-					<div class="col-md-6 col-12">
-						<div class="pro-details">
-						<h1 id="pro-name"></h1>
-							<h2 id="pro-price"></h2>
-							<div id="product_cart"></div>
-						</div>
-
-						<hr>
-						<p id="desc"></p>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer pro-details-footer">
-				<div class="row">
-					<div class="col-md-8 col-12">
-						<span><i class="fas fa-truck"></i> Quick Delivery</span>
-						<span><i class="fas fa-money-bill-alt"></i> Cash on Delivery</span>
-
-						<hr>
-						<h1>Arhongo</h1>
-						<p>
-							Arhongo is an online shop in Bangladesh. We believe time is valuable to our clients and that they should not have to waste hours in traffic, brave bad weather and wait in line just to buy basic necessities like eggs! This is why Arhongo delivers everything you need right at your door-step and at no additional cost.
-						</p>
-						<hr>
-					</div>
-					<div class="col-md-4 col-12">
-						<h4>Call us for any query</h4><br>
-						<h3><i class="fas fa-phone"></i> +880 1826 XXXXXX</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div> --}}
-<!-- modal for show product details end here -->
+	
 
 {{-- <script>
 	$(document).ready(function () {
@@ -102,4 +54,5 @@
 		});
 	});
 </script> --}}
+
 @endsection

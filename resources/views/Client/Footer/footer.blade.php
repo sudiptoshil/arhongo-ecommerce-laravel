@@ -96,7 +96,7 @@
 
 
 
-<script>
+{{-- <script>
 	swal({
 		title: "Done",
 		text: "",
@@ -114,11 +114,11 @@
 		showConfirmButton: false,
 		type: 'error'
 	});
-</script>
+</script> --}}
 
 
 
-<script>
+ <script>
 $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
@@ -266,6 +266,7 @@ $(document).ready(function() {
 			}
 			//alert("ok");
 			var product_id = $(this).attr('data-id');
+			var vendor_id = $(this).attr('data-id');
 			var product_name = $(this).attr('data-name');
 			var price = $(this).attr('data-price');
 			var type = 1;
@@ -277,6 +278,7 @@ $(document).ready(function() {
 			var url="./add-to-cart";
 			var data={
 				product_id:product_id,
+				vendor_id:vendor_id
 			}
 			ajaxSetup(function(data){
 				$(".btn-cart").removeAttr("disabled");
@@ -851,7 +853,7 @@ function ajaxSetup(callback, method, url, data) {
 }
 
 
-</script>
+</script> --}}
 
 </body>
 

@@ -23,6 +23,7 @@ rel='stylesheet' type='text/css'>
 <link
 href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
 rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/fontawesome.min.js">
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="stylesheet" href="{{asset("client/css/font-awesome.min.css")}}">
@@ -34,6 +35,9 @@ rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{asset("client/responsive.css")}}">
 <link rel="stylesheet" href="{{asset("client/css/cart.css")}}">
 <link rel="stylesheet" href="{{asset("client/css/custom_slider.css")}}">
+
+
+
  
 <!-- Bootstrap core CSS -->
 <link href="{{asset("client/assets/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
@@ -132,7 +136,7 @@ background-color: #fff;
     <a onclick="cart_data_display()" style="cursor:pointer"><i class="fa fa-shopping-cart text-white"></i> <span id="total-cart-item" class="text-white"></span></a>
 </div>
 
-<!-- Shopping cart Modal -->
+ <!-- Shopping cart Modal -->
 <div class="modal fade" id="shoppingcart" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -186,7 +190,7 @@ background-color: #fff;
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div><!-- /.modal --> 
 
 </div>
 </div>
@@ -222,11 +226,11 @@ background-color: #fff;
 </div>
 </div>
 
-<button id="cart-box-btn" class="cart-open-btn" style="margin-top:40px"><div class="cart-btn-content"><i class='fa fa-shopping-cart'></i><br><strong id="total-item"></strong></div><div class="cart-taka"><strong id="total-amount"></strong></div></button>
+ <button id="cart-box-btn" class="cart-open-btn" style="margin-top:40px"><div class="cart-btn-content"><i class='fa fa-shopping-cart'></i><br><strong id="total-item"></strong></div><div class="cart-taka"><strong id="total-amount"></strong></div></button>
 <div id="toggle">
 <h4 class="text-center">Your Cart</h4>
 <div class="cart-table-content">
-<a href="{{route('place-order')}}" class="order-btn"><i class="fa fa-shopping-cart"></i> Place order  &nbsp;&nbsp;&nbsp;<span id="discounted_amount" class="text-danger"></span></a>
+ <a href="{{route('place-order')}}" class="order-btn"><i class="fa fa-shopping-cart"></i> Place order  &nbsp;&nbsp;&nbsp;<span id="discounted_amount" class="text-danger"></span></a> 
 <table class="table cart-table">
 <tbody class="cart-data">
 

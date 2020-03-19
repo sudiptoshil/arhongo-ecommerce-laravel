@@ -4,6 +4,7 @@ namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 use Session;
+use Mail;
 
 
 class user_register extends Model
@@ -24,7 +25,13 @@ class user_register extends Model
     	$user_register->permanent_address = $request->permanent_address;
     	$user_register->save();
     	session::put('client_id',$user_register->id);
-    	session::put('client_name',$user_register->full_name);
+		session::put('client_name',$user_register->full_name);
+
+		// $data = $user_register->toArray();
+        // Mail::send('Client.mail.congratulation_mail',$data,function($message) use($data){
+		// 	$message->to($data['email']);
+		// 	$message->subject('congratulation mail!!');
+        // });
     }
 
 

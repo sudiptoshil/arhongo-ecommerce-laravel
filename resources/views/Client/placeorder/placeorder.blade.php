@@ -17,6 +17,7 @@
 							<thead style="background:gray;color:white;font-family:sans-serif;font-weight:bold;">
 								<tr>
 									<th>Product Name</th>
+									<th>vendor_id</th>
 									<th>Price</th>
 									<th>Quantity</th>
 									<th>Total Price</th>
@@ -37,7 +38,8 @@
 							@foreach ($cart as $v_cart)
                             <tbody id="trr">
 
-                            <td>{{$v_cart->name}}</td>
+							<td>{{$v_cart->name}}</td>
+							<td>{{$v_cart->vendor_id}}</td>
                             <td>{{$v_cart->price}}</td>
                             <td>{{$v_cart->qty}}</td>
                             <td>{{$total = $v_cart->qty*$v_cart->price}}</td>

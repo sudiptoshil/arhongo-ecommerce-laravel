@@ -153,8 +153,7 @@ Route::post('/vendor-save-sizecolor','vendor\color_size\color_sizeController@ven
 // vendor product image------------------
 Route::post('/vendor-add-more-image','vendor\product_image\product_imageController@vendor_addmoreimage')->name('vendor-add-more-image');
 
-
-
-
  Route::get('/productimage','vendor\product\productController@product_image');
 //Route::get('/product-image','product\productController@product_image');
+// vendor order management--------------
+Route::get('/manage-order','vendor\order\orderController@manage_order')->name('manage-order');

@@ -47,9 +47,15 @@ class clientController extends Controller
     }
 
     public function productdetails($id)
-    {   $product = product::find($id);
+    {   $product     = product::find($id);
+        // $relateditem = product::where('category_id',$id)->get();
+        $relateditem    = product::where('id','!=',$id)->where(['category_id'=>$product->category_id])->get();
+        // echo "</pre>";
+        // print_r($relateditem);
+        // exit();
         return view('Client.product_details.product_details',[
-            'product' => $product
+            'product' => $product,
+             'relateditem' => $relateditem
         ]);
     }
 

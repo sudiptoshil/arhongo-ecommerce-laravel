@@ -32,7 +32,7 @@
           <div class="dropdown-menu" aria-labelledby="ordersDropdown">
             <a class="dropdown-item" href="order/pending_order_of_vendor">Pendign Orders</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="order/all_order_of_vendor">All Orders</a>
+          <a class="dropdown-item" href="{{route('manage-order')}}">All Orders</a>
           </div>
         </li>
     </ul>

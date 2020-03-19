@@ -18,7 +18,7 @@
       <div class="col-lg-12">
 
         <div class="card mt-4">
-        <img class="card-img-top img-fluid" src="{{asset($product->img)}}" alt="" height="50%">
+        <img class="card-img-top img-fluid" src="{{asset($product->img)}}" alt="" width="10%">
           <div class="card-body">
           <h3 class="card-title">{{$product->product_name}}</h3>
           <h4><u style="color:red">{{$product->currency }} {{$product->display_price}}</u></h4>
@@ -46,12 +46,40 @@
           </div> --}}
         </div>
         <!-- /.card -->
-
-      </div>
+     <h2 align="center" style="color:red"><u> Related Item</u></h2>
+       {{--  --}}
+       <div class="row">
+         <div class="col-md-4">
+          @foreach($relateditem as $v_item)
+         <h1>{{$v_item->product_name}}</h1>
+         <img src="{{asset($v_item->img)}}"> 
+         @endforeach
+         </div>
+       </div>
+       {{--  --}}
+     
       <!-- /.col-lg-9 -->
 
     </div>
 
   </div>
   <!-- /.container -->
+  {{-- <script>
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:5
+          }
+      }
+  })
+  </script> --}}
 @endsection

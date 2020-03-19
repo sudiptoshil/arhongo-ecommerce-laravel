@@ -8,6 +8,7 @@ use Cart;
 use App\model\product;
 use App\model\order;
 use App\model\invoice;
+use App\model\vendor;
 
 use Session;
 
@@ -34,7 +35,10 @@ class orderController extends Controller
         $order->save();
         $cartproduct   = Cart::content();
         foreach($cartproduct as $v_cartpro){
+            $pInfo=product::find($v_cartpro->id);
+
             $invoice =  new invoice();
+            $invoice->vendor_id=$pInfo->vendor->id;
             $invoice->order_id = $order->id;
             $invoice->product_id = $v_cartpro->id;
             $invoice->product_unite_price = $v_cartpro->price;
