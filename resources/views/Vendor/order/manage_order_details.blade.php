@@ -84,6 +84,10 @@
                     <th style="width: 20px;">No.</th>
                     <th style="width: 300px;">Name</th>
                     <th style="width: 25px;">product name</th>
+                    <th style="width: 20px;">Quantity</th>
+                    <th style="width: 20px;">Price</th>
+                    <th style="width: 20px;">payment method</th>
+                    <th style="width: 20px;">date</th>
                     <th style="width: 20px;">delivery location</th>
                     <th style="width: 20px;">status</th>
                     <th style="width: 20px;">Action</th>
@@ -96,6 +100,14 @@
                   <td>{{$i++}}</td>
                   <td>{{$v_order->full_name}}</td>
                     <td>{{$v_order->product_name}}</td>
+                    <td>{{$v_order->product_quantity}}</td>
+                    <td>{{$v_order->product_unite_price}}</td>
+                    @if($v_order->payment_method == 1)
+                    <td>cash on delivery</td>
+                    @else
+                    <td>bkash</td>
+                    @endif
+                    <td>{{$v_order->created_at}}</td>
                     <td>{{$v_order->delivery_location}}</td>
                     @if($v_order->status == 1)
                     <td>pending</td>
@@ -105,10 +117,20 @@
                     <td><span style="color:red">cancelled</span></td>
                     @endif
                     <td>
-                        <a 
-                    href="{{route('manage-order-details',['id' => $v_order->id])}}" 
+                        {{-- <a 
+                            href="" 
                             class="btn btn-sm btn-info border-0" style="border-radius: 12px; margin-bottom:10px;  ">
                             Details
+                        </a> --}}
+                        <a 
+                      href="{{route('vendor-order-accept',['id' => $v_order->order_id])}}" 
+                            class="btn btn-sm btn-info border-0" style="border-radius: 12px; margin-bottom:10px; ">
+                            accept
+                        </a>
+                        <a 
+                            href="{{route('vendor-order-cancel',['id' => $v_order->order_id])}}" 
+                            class="btn btn-sm btn-info border-0" style="border-radius: 12px;">
+                            cancel
                         </a>
                     </td>
                   </tr>

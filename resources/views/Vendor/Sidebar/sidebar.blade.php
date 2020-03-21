@@ -24,16 +24,11 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Brands</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="ordersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item ">
+          <a class="nav-link " href="{{route('manage-order')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Orders</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="ordersDropdown">
-            <a class="dropdown-item" href="order/pending_order_of_vendor">Pendign Orders</a>
-            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{route('manage-order')}}">All Orders</a>
-          </div>
         </li>
     </ul>
 

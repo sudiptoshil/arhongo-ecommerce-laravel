@@ -44,7 +44,7 @@ Route::post('/confirm-order','order\orderController@confirm_order')->name('confi
 
 
 
-
+// for main admin----------
 Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -111,6 +111,12 @@ Route::get('/get-categories/{id}','Api\apiController@getcategories');
 Route::get('/get-brand/{id}','Api\apiController@getbrands');
 });
 
+// for admin order management------------
+Route::get('/admin-manage-order','order\adminmanageorderController@admin_manage_order')->name('admin-manage-order');
+Route::get('/admin-manage-order-details/{id}','order\adminmanageorderController@admin_manage_order_details')->name('admin-manage-order-details');
+Route::get('/admin-order-accept/{id}','order\adminmanageorderController@admin_accept_order')->name('admin-order-accept');
+
+
 
 
 
@@ -157,3 +163,6 @@ Route::post('/vendor-add-more-image','vendor\product_image\product_imageControll
 //Route::get('/product-image','product\productController@product_image');
 // vendor order management--------------
 Route::get('/manage-order','vendor\order\orderController@manage_order')->name('manage-order');
+Route::get('/manage-order-details/{id}','vendor\order\orderController@manage_order_details')->name('manage-order-details');
+Route::get('/vendor-order-accept/{id}','vendor\order\orderController@vendor_accept_order')->name('vendor-order-accept');
+Route::get('/vendor-order-cancel/{id}','vendor\order\orderController@vendor_cancel_order')->name('vendor-order-cancel');

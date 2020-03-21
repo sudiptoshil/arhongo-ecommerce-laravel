@@ -1,9 +1,9 @@
-@extends('Vendor.vendor_master')
-@section('vendor-home')
+@extends('Admin.admin_master')
+@section('admin-home')
     <div id="content-wrapper">
       <div class="container-fluid">
         <!-- Icon Cards-->
-        <div class="row">
+         <div class="row">
           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
@@ -11,7 +11,7 @@
                   <i class="fas fa-fw fa-comments"></i>
                 </div>
                 <div class="mr-5">26 New Messages!</div>
-              </div>
+              </div> 
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
@@ -52,7 +52,7 @@
               </a>
             </div>
           </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
+           <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
@@ -69,67 +69,59 @@
             </div>
           </div>
         </div>
-        <!-- /Icon Cards-->
+        <!-- /Icon Cards-->      
         <!-- DataTables Example -->
-        <div class="card mb-12">
+        <h3 style="color: red" align="center"></h3>
+        <div class="card mb-3">
           <div class="card-header bg-white">
             <i class="fas fa-table"></i>
             All Orders</div>
-            <h2 style="color: red" align="center"></h2>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" style="border-style: dashed" id="dataTable" width="100%" cellspacing="0">
                 <thead class="">
                   <tr>
                     <th style="width: 20px;">No.</th>
-                    <th style="width: 300px;">Name</th>
-                    <th style="width: 25px;">product name</th>
-                    <th style="width: 20px;">delivery location</th>
-                    <th style="width: 20px;">status</th>
+                    <th style="width: 300px;">Vendor Name</th>
+                    <th style="width: 25px;">Customer Name</th>
+                    <th style="width: 20px;">product Name</th>
+                    {{-- <th style="width: 20px;">Price</th> --}}
                     <th style="width: 20px;">Action</th>
                   </tr>
                 </thead>
-                @php($i = 1)
-                @foreach ($orders as $v_order)
                 <tbody>
+                    @php($i = 1)
+                @foreach($orders as $v_orders)
                   <tr>
                   <td>{{$i++}}</td>
-                  <td>{{$v_order->full_name}}</td>
-                    <td>{{$v_order->product_name}}</td>
-                    <td>{{$v_order->delivery_location}}</td>
-                    @if($v_order->status == 1)
-                    <td>pending</td>
-                    @elseif($v_order->status == 2)
-                    <td><span style="color:green"><b>processing</b></span></td>
-                    @else
-                    <td><span style="color:red">cancelled</span></td>
-                    @endif
+                  <td>{{$v_orders->username}}</td>
+                  <td>{{$v_orders->full_name}}</td>
+                  <td>{{$v_orders->product_name}}</td>
+                  @if($v_orders->status == 4)
+                  <td><span style="color:blue"><b>accepted</b></span></td>
+                  @elseif($v_orders->status == 3)
+                  <td><span style="color:red">cancellation</span></td>
+                  @elseif($v_orders->status == 2)
+                  <td><span style="color:green"> accept pending</span></td>
+                  @else
+                  <td><span style="color:yellowgreen">pending</span></td>
+                  @endif
                     <td>
                         <a 
-                    href="{{route('manage-order-details',['id' => $v_order->id])}}" 
-                            class="btn btn-sm btn-info border-0" style="border-radius: 12px; margin-bottom:10px;  ">
+                    href="{{route('admin-manage-order-details',['id'=>$v_orders->id])}}" 
+                            class="btn btn-sm btn-info border-0" style="border-radius: 12px;">
                             Details
                         </a>
                     </td>
                   </tr>
-                 
-                </tbody>
                 @endforeach
+                </tbody>
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted"></div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-
-
-
-        
-
-
-
       </div>
-      <!-- /.container-fluid -->
-
     </div>
     <!-- /.content-wrapper -->
 
@@ -140,10 +132,6 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-
-  <!-- Product Detail Modal -->
-  <!-- Modal -->
         <div class="modal fade" id="productDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -164,8 +152,6 @@
             </div>
         </div>
         </div>
-  <!-- / Product Detail Modal -->
-
 
   <script>
 
@@ -183,7 +169,6 @@
   
 
   </script>
-
 
 
 
