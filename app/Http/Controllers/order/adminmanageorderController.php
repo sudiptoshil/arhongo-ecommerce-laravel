@@ -19,7 +19,7 @@ class adminmanageorderController extends Controller
                 ->join('user_registers', 'orders.customer_id', '=', 'user_registers.id')
                 ->join('product', 'invoice.product_id', '=', 'product.id')
                 ->join('vendor', 'invoice.vendor_id', '=', 'vendor.id')
-                ->select('invoice.*', 'orders.id', 'user_registers.full_name','product.product_name','orders.payment_method','orders.delivery_location','vendor.username')
+                ->select('invoice.*', 'orders.id', 'user_registers.full_name','product.product_name','orders.payment_method','orders.delivery_location','vendor.username','orders.status')
                 // ->where('invoice.vendor_id',"=",$vid)
                 ->get();
         // $vid = Session::get('vendorid');
@@ -41,7 +41,7 @@ class adminmanageorderController extends Controller
                 ->join('user_registers', 'orders.customer_id', '=', 'user_registers.id')
                 ->join('product', 'invoice.product_id', '=', 'product.id')
                 ->join('vendor', 'invoice.vendor_id', '=', 'vendor.id')
-                ->select('invoice.*', 'orders.id', 'user_registers.full_name','product.product_name','orders.payment_method','orders.delivery_location','vendor.username')
+                ->select('invoice.*', 'orders.id', 'user_registers.full_name','product.product_name','orders.payment_method','orders.delivery_location','vendor.username','orders.status')
                 ->where('invoice.order_id',$id)
                 ->get();
 
@@ -63,13 +63,14 @@ class adminmanageorderController extends Controller
         ->update(['status'=> 4]);
          return back();
         // return $id;
+        
     }
 
-    // public function admin_cancel_order($id)
-    // {
-    //     DB::table('orders')
-    //     ->where('id', $id)
-    //     ->update(['status' => 3]);
-    //      return back();
-    // }
+    public function admin_cancel_order($id)
+    {
+        DB::table('orders')
+        ->where('id', $id)
+        ->update(['status' => 3]);
+         return back();
+    }
 }

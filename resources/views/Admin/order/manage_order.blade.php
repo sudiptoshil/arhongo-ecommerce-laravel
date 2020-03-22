@@ -85,7 +85,7 @@
                     <th style="width: 300px;">Vendor Name</th>
                     <th style="width: 25px;">Customer Name</th>
                     <th style="width: 20px;">product Name</th>
-                    {{-- <th style="width: 20px;">Price</th> --}}
+                    <th style="width: 20px;">status</th>
                     <th style="width: 20px;">Action</th>
                   </tr>
                 </thead>

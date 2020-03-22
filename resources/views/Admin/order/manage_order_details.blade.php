@@ -109,10 +109,15 @@
                     @endif
                     <td>{{$v_order->created_at}}</td>
                     <td>{{$v_order->delivery_location}}</td>
-                    @if($v_order->status == 2)
-                    <td>accepted</td>
+
+                    @if($v_order->status == 4)
+                    <td><span style="color:blue">accepted</span></td>
+                    @elseif($v_order->status == 2 )
+                    <td><span style="color:green">accept pending</span></td>
+                    @elseif($v_order->status == 3)
+                    <td><span style="color:red">cancellation</span></td>
                     @else
-                    <td>pending</td>
+                    <td><span style="color:yellowgreen">pending</span></td>
                     @endif
                     <td>
                         {{-- <a 
@@ -126,7 +131,7 @@
                             accept
                         </a>
                         <a 
-                            href="" 
+                      href="{{route('admin-order-cancel',['id' =>  $v_order->order_id])}}" 
                             class="btn btn-sm btn-info border-0" style="border-radius: 12px;">
                             cancel
                         </a>

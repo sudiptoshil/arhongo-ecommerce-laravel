@@ -115,6 +115,7 @@ Route::get('/get-brand/{id}','Api\apiController@getbrands');
 Route::get('/admin-manage-order','order\adminmanageorderController@admin_manage_order')->name('admin-manage-order');
 Route::get('/admin-manage-order-details/{id}','order\adminmanageorderController@admin_manage_order_details')->name('admin-manage-order-details');
 Route::get('/admin-order-accept/{id}','order\adminmanageorderController@admin_accept_order')->name('admin-order-accept');
+Route::get('/admin-order-cancel/{id}','order\adminmanageorderController@admin_cancel_order')->name('admin-order-cancel');
 
 
 
